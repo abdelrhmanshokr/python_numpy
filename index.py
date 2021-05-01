@@ -62,7 +62,9 @@ np.savetxt(
     climate_results,
     fmt='%.2f',
     delimiter=',',
-    header='temperature, rainfall,humidity, yield_apples',
+    header='temperature, rainfall, humidity, yield_apples',
     comments=''
 )
+
+# arithmatic operations over np arrays 
 
