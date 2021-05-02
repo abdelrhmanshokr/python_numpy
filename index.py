@@ -36,35 +36,44 @@ notice that all elements in a mumpy array should have the same data type
 and we can check its type using .dtype
 '''
 
+# import numpy as np
+# import urllib.request
+
+# urllib.request.urlretrieve(
+#     'https://hub.jovian.ml/wp-content/uploads/2020/08/climate.csv',
+#     'climate.txt'
+# )
+
+# climate_data = np.genfromtxt('climate.txt', delimiter=',', skip_header=1)
+# # print(climate_data.shape)
+
+# weights = np.array([0.3, 0.2, 0.5])
+# yields = climate_data @ weights
+# print(yields)
+# print(yields.shape)
+
+# # we can add yields to climate_data as a forth column and save it as new array climate_results
+# climate_results = np.concatenate((climate_data, yields.reshape(10000, 1)), axis=1)
+# print(climate_results)
+
+# # now let's save it as a txt file let's save the climate_results
+# np.savetxt(
+#     'climate_results.txt',
+#     climate_results,
+#     fmt='%.2f',
+#     delimiter=',',
+#     header='temperature, rainfall, humidity, yield_apples',
+#     comments=''
+# )
+
+# # arithmatic operations over np arrays 
+# # print(np.random.rand(2, 3))
+
+
+# lesson 3 a 100 numpy exercises
 import numpy as np
-import urllib.request
+print(np.__version__)
 
-urllib.request.urlretrieve(
-    'https://hub.jovian.ml/wp-content/uploads/2020/08/climate.csv',
-    'climate.txt'
-)
-
-climate_data = np.genfromtxt('climate.txt', delimiter=',', skip_header=1)
-# print(climate_data.shape)
-
-weights = np.array([0.3, 0.2, 0.5])
-yields = climate_data @ weights
-print(yields)
-print(yields.shape)
-
-# we can add yields to climate_data as a forth column and save it as new array climate_results
-climate_results = np.concatenate((climate_data, yields.reshape(10000, 1)), axis=1)
-print(climate_results)
-
-# now let's save it as a txt file let's save the climate_results
-np.savetxt(
-    'climate_results.txt',
-    climate_results,
-    fmt='%.2f',
-    delimiter=',',
-    header='temperature, rainfall, humidity, yield_apples',
-    comments=''
-)
-
-# arithmatic operations over np arrays 
-
+null_vector = np.zeros(12)
+print(null_vector)
+print('{} size in memory'.format(null_vector.size * null_vector.itemsize))

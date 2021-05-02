@@ -1,4 +1,4 @@
-temperature, rainfall,humidity, yield_apples
+temperature, rainfall, humidity, yield_apples
 25.00,76.00,99.00,72.20
 39.00,65.00,70.00,59.70
 59.00,45.00,77.00,65.20
