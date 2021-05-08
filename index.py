@@ -188,6 +188,25 @@ and we can check its type using .dtype
 
 
 # Create a 5x5 matrix with values 1,2,3,4 just below the diagonal
-five_by_5_array = np.random.randint(0, 22, size=(5, 5), dtype=int)
-print(five_by_5_array)
+# five_by_5_array = np.random.randint(0, 22, size=(5, 5), dtype=int)
+# wanted_numbers_arary = [1, 2, 3, 4]
+# for i in range(five_by_5_array.shape[0]):
+#         for j in range(five_by_5_array.shape[1]):
+#                 if i == j + 1:
+#                         five_by_5_array[i][j] = wanted_numbers_arary[j]
+# print(five_by_5_array)
 
+
+# Create a 8x8 matrix and fill it with a checkerboard pattern
+# checkboard_size = (8, 8) 
+# checkerboard = np.zeros(checkboard_size)
+# for i in range(checkerboard.shape[0]):
+#         for j in range(checkerboard.shape[1]):
+#                 if (i + j) % 2 != 0:
+#                         checkerboard[i][j] = 1
+# print(checkerboard)
+
+
+# Normalize a 5x5 random matrix
+random_array = np.random.randint(0, 20, size=(5, 5), dtype=int)
+print(random_array)
