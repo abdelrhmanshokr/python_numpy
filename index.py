@@ -1,3 +1,4 @@
+from os import name
 import numpy as np 
 
 # line = '*'
@@ -208,5 +209,74 @@ and we can check its type using .dtype
 
 
 # Normalize a 5x5 random matrix
-random_array = np.random.randint(0, 20, size=(5, 5), dtype=int)
-print(random_array)
+# random_array = np.random.randint(0, 20, size=(5, 5), dtype=int)
+# print(random_array)
+
+# pandas 
+from urllib.request import urlretrieve 
+import pandas as pd 
+
+
+italy_covid_url = 'https://gist.githubusercontent.com/aakashns/f6a004fa20c84fec53262f9a8bfee775/raw/f309558b1cf5103424cef58e2ecb8704dcd4d74c/italy-covid-daywise.csv'
+urlretrieve(italy_covid_url, 'italy-covid.csv')
+
+covid_df = pd.read_csv('italy-covid.csv')
+print(type(covid_df))
+print(covid_df.info())
+print(covid_df.describe())
+print(covid_df.shape)
+print(covid_df.columns)
+
+
+# retirieving data from a data frame 
+print(covid_df.new_cases)
+print(covid_df[['date', 'new_cases']])
+print(covid_df.at[24, 'new_cases'])
+# to access one row 
+print(covid_df.loc[200])
+
+
+# analyzing data from a data frame 
+# total number of cases and deaths
+total_cases = covid_df.new_cases.sum()
+total_deaths = covid_df.new_deaths.sum()
+print('total cases', total_cases)
+print('total deaths', total_deaths)
+
+
+# querying and sorting data 
+# high_new_cases = covid_df.new_cases > 1000
+# print('high new cases', covid_df[high_new_cases])
+# this is the same as
+high_new_cases = covid_df[covid_df.new_cases > 1000] 
+print('high new cases', high_new_cases)
+
+
+# working with dates 
+print(covid_df['date'])
+# it's an object type so pandas has no idea it's a date 
+# so we need to convert it into a date first to deal with it as such
+covid_df['date'] = pd.to_datetime(covid_df.date)
+print(covid_df.date)
+# now it's a datetime format 
+# as it's in format we can extract various details
+# like adding a new row like year or month like so
+covid_df['year'] = pd.DatetimeIndex(covid_df.date).year
+covid_df['month'] = pd.DatetimeIndex(covid_df.date).month
+covid_df['day'] = pd.DatetimeIndex(covid_df.date).day
+print(covid_df)
+
+
+# grouping and aggregation
+# summarize data month wise
+# covid_month_df = covid_df.groupby('month')[]
+
+
+# trying group by in another file
+laborex_file = pd.read_excel('laborex.xlsx')
+med_names = ['panadol', 'A', 'B', 'C', 'promax']
+grouped_new_file = laborex_file.sort_values(['name', 'price'], axis=0, inplace=False)
+print(laborex_file)
+print('new grouped file', grouped_new_file.first)
+# grouped_new_file.describe()
+# grouped_new_file.to_excel(r'new grouped file.xlsx', index=False)
