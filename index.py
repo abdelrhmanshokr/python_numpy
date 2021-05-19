@@ -272,11 +272,39 @@ print(covid_df)
 # covid_month_df = covid_df.groupby('month')[]
 
 
-# trying group by in another file
+# trying sort_values in another file
 laborex_file = pd.read_excel('laborex.xlsx')
-med_names = ['panadol', 'A', 'B', 'C', 'promax']
 grouped_new_file = laborex_file.sort_values(['name', 'price'], axis=0, inplace=False)
 print(laborex_file)
 print('new grouped file', grouped_new_file.first)
 # grouped_new_file.describe()
 # grouped_new_file.to_excel(r'new grouped file.xlsx', index=False)
+
+
+# Data visualization with matplotlib and seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# line chart 
+years = [2011, 2012, 2013, 2014, 2015, 2016]
+yield_apples = [1, 2.25, 6.245, 7.142, 5.200, 6.635]
+yield_oranges = [5, 7.25, 4.22, 8.142, 6.200, 12.635]
+# label x_axis and y_label
+plt.xlabel('years')
+plt.ylabel('yield')
+# chart title and legend
+plt.title('apples and oranges yield chart')
+plt.legend(['apples', 'oranges'])
+# plotting a new chart plt.plot(x_axis, y_axis)
+# marker argument is used to add marking to the chart
+plt.plot(years, yield_apples, marker='o')
+plt.plot(years, yield_oranges, marker='x')
+plt.savefig('data visualizaiton.png')
+
+
+
+# # trying SQLtie that ships with python
+# import sqlite3
+
+# # create a connection to the DB
+# connection = sqlite3.connect('client.DB')
